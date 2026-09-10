@@ -17,6 +17,17 @@
   border-inline-end: none !important;
 }
 
+.custom-app-sidebar-menu .ant-menu-item-selected,
+.custom-app-sidebar-menu .ant-menu-submenu-selected > .ant-menu-submenu-title {
+  border-radius: 9px;
+  font-weight: 700;
+}
+
+.custom-app-sidebar-menu .ant-menu-item:hover,
+.custom-app-sidebar-menu .ant-menu-submenu-title:hover {
+  border-radius: 9px;
+}
+
 .custom-app-sidebar-menu .ant-menu-item,
 .custom-app-sidebar-menu .ant-menu-submenu-title {
   -moz-user-select: none;

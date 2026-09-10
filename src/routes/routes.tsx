@@ -13,6 +13,10 @@ import profileRoutes from "@/pages/profile/routes.tsx";
 import { checkUserPermission, Permissions } from "@/shared/config/permissions";
 import type { CustomRoute } from "@/shared/types";
 import cvedRoutes from "@/pages/cved/routes.tsx";
+import { MessageCircle } from "lucide-react";
+import { lazy } from "react";
+
+const Chat = lazy(() => import("@/pages/chat"));
 
 const publicRoutes = [authRoutes];
 
@@ -30,7 +34,18 @@ const protectedRoutes: CustomRoute[] = [
     children: [
       homeRoutes,
       dashboardRoutes,
-    cvedRoutes,
+      cvedRoutes,
+      {
+        id: "chat",
+        path: "/chat",
+        element: <Chat />,
+        errorElement: <ErrorWrapper />,
+        handle: {
+          title: "breadcrumb.chat",
+          icon: (props) => <MessageCircle {...props} />,
+          permissions: [Permissions.AllowAll]
+        }
+      },
       immigrantsRoutes,
       profileRoutes
     ]

@@ -13,28 +13,26 @@ export const ThemeChanger = () => {
   });
 
   // States
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "dark" || storedTheme === "light") return storedTheme;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
 
   // Effects
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme) {
-      setTheme(storedTheme);
-      document.documentElement.classList.toggle("dark", storedTheme === "dark");
-    } else {
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches;
-      setTheme(prefersDark ? "dark" : "light");
-      document.documentElement.classList.toggle("dark", prefersDark);
-    }
-  }, []);
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
     localStorage.setItem("theme", newTheme);
     document.documentElement.classList.toggle("dark", newTheme === "dark");
+    document.documentElement.style.colorScheme = newTheme;
   };
 
   return (

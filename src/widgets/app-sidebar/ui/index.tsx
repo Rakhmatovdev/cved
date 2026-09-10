@@ -20,11 +20,11 @@ const MENU_THEME = {
   components: {
     Menu: {
       activeBarBorderWidth: 0,
-      itemHoverBg: "#F5F6FA",
-      itemSelectedBg: "#F8F8FA",
-      itemSelectedColor: "#232E40",
+      itemHoverBg: "#F3F6FB",
+      itemSelectedBg: "#EEF4FF",
+      itemSelectedColor: "#2563EB",
       subMenuItemBg: "transparent",
-      itemColor: "#69757A",
+      itemColor: "#667085",
       padding: 0,
       paddingSM: 0,
       paddingXL: 0
@@ -35,10 +35,10 @@ const MENU_THEME = {
 const DARK_MENU_THEME = {
   components: {
     Menu: {
-      itemColor: "#A0AEC0",
-      itemHoverBg: "#283459",
-      itemSelectedBg: "#2C3E6D",
-      itemSelectedColor: "#EDF2F7",
+      itemColor: "#9AAAC1",
+      itemHoverBg: "#172B47",
+      itemSelectedBg: "#1D3152",
+      itemSelectedColor: "#C7D9FF",
       subMenuItemBg: "transparent"
     }
   }
