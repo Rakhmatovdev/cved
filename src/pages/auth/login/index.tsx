@@ -74,7 +74,7 @@ export default function Login() {
           <div className="login-brand-mark">
             <img src={gerb} alt="O'zbekiston gerbi" />
           </div>
-          <p className="login-eyebrow">CVED · OVIR</p>
+          <p className="login-eyebrow">CVED · CONTROL</p>
           <h1>{t("login.title", "Xush kelibsiz!")}</h1>
           <p className="login-intro-copy">
             {t(

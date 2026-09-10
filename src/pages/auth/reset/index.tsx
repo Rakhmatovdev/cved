@@ -44,7 +44,7 @@ export default function Reset() {
         <video autoPlay loop muted className="background-video">
           <source
             src={
-              "https://ovir-files.xdevs.uz/immigrant-media/media/videos/registon.gif"
+              "/static/registon.mp4"
             }
             type="video/mp4"
           />
