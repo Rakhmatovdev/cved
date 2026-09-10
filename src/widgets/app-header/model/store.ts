@@ -9,8 +9,9 @@ interface LangActions {
   reset: () => void;
 }
 
+const savedLanguage = localStorage.getItem("i18nextLng")?.slice(0, 2);
 const initialState: Lang = {
-  lang: localStorage.getItem("i18nextLng") || "uz"
+  lang: savedLanguage && ["uz", "ru", "en"].includes(savedLanguage) ? savedLanguage : "uz"
 };
 
 export const useCurrentLang = create<Lang & LangActions>()((set) => ({

@@ -154,7 +154,9 @@ export function HTable<T>({
           <div className="py-2 mr-4 transition">
             {lang === "ru"
               ? `${range[0]}–${range[1]} ${t("table.pagination.of")} ${total}`
-              : `Jami ${total} ${t("table.pagination.of")} ${range[0]}-${range[1]} ko'rsatilmoqda`}
+              : lang === "en"
+                ? `${range[0]}–${range[1]} ${t("table.pagination.of")} ${total}`
+                : `Jami ${total} ${t("table.pagination.of")} ${range[0]}-${range[1]} ko'rsatilmoqda`}
           </div>
         );
       },

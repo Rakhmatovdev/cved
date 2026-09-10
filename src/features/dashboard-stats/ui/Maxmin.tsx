@@ -24,7 +24,7 @@ const RegionCard = ({
   <motion.div
     whileHover={{ scale: 1.02 }}
     transition={{ type: "spring", stiffness: 200, damping: 15 }}
-    className="relative overflow-hidden bg-white dark:bg-darkSlate rounded-2xl
+    className="relative overflow-hidden bg-white dark:bg-darkSlate rounded-2xl dashboard-region-card
       border border-gray-100 dark:border-dborder p-4 shadow-sm
       transition-all duration-300 group"
   >
@@ -131,7 +131,7 @@ export default function Maxmin() {
   ];
 
   return (
-    <div className="w-full p-5 rounded-2xl border dark:bg-[#181B29] border-gray-100 dark:border-dborder shadow-sm
+    <div className="dashboard-card w-full p-5 rounded-2xl border dark:bg-[#181B29] border-gray-100 dark:border-dborder shadow-sm
       bg-white  transition">
       <div className="mb-4">
         <div className="flex justify-between items-center mb-2">

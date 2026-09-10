@@ -50,7 +50,7 @@ export default function Login() {
 
       setError("username", {
         type: "server",
-        message: "Demo login yoki parol noto'g'ri"
+        message: t("login.invalid_demo", "Demo login yoki parol noto'g'ri")
       });
       return;
     }
@@ -83,7 +83,7 @@ export default function Login() {
             )}
           </p>
           <div className="login-status">
-            <span /> Tizim faol
+            <span /> {t("login.system_active", "Tizim faol")}
           </div>
         </section>
 
@@ -102,7 +102,7 @@ export default function Login() {
 
           {isDemoMode && (
             <div className="login-demo-hint">
-              Demo kirish: <strong>Jasur</strong> / <strong>123</strong>
+              {t("login.demo_hint", "Demo kirish: Jasur / 123")}
             </div>
           )}
 
@@ -161,7 +161,7 @@ export default function Login() {
               {loginMutation.isPending ? <Spin size="small" /> : t("login.login", "Hisobga kirish")}
             </button>
           </form>
-          <p className="login-security">Kirish ma'lumotlari shifrlangan kanal orqali himoyalanadi.</p>
+          <p className="login-security">{t("login.security_note", "Kirish ma'lumotlari shifrlangan kanal orqali himoyalanadi.")}</p>
         </section>
       </div>
     </main>

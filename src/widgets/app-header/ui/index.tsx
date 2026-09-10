@@ -70,7 +70,7 @@ export default function AppHeader() {
           placement="bottomRight"
           trigger={["click"]}
         >
-          <div className="flex transition items-center gap-[12px] dark:text-[#fff] text-[#1F2937] text-[15px] font-[600] h-auto cursor-pointer">
+          <button type="button" aria-label={t("statics.profile")} className="header-profile border-0 bg-transparent flex transition items-center gap-[12px] dark:text-[#fff] text-[#1F2937] text-[15px] font-[600] h-auto cursor-pointer">
             <Avatar>
               <AvatarImage src={user?.photo} alt="User" />
               <AvatarFallback>
@@ -81,7 +81,7 @@ export default function AppHeader() {
               {user?.first_name} {user?.last_name}
             </div>
             <DownArrowIcon />
-          </div>
+          </button>
         </Dropdown>
       </Flex>
     </Flex>

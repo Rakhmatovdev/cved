@@ -5,9 +5,8 @@ import queryClient from "../config/query-client";
 
 const languageOptions = [
   { value: "uz", label: "O'zbek" },
-  { value: "ru", label: "Русский" }
-  // { value: "en", label: "English" },
-  // { value: "uz-cyrillic", label: "Ўзбек" }
+  { value: "ru", label: "Русский" },
+  { value: "en", label: "English" }
 ];
 
 export const LanguageChanger = () => {
@@ -34,8 +33,8 @@ export const LanguageChanger = () => {
 
   return (
     <Dropdown menu={{ items }} placement="bottom" trigger={["click"]}>
-      <button className="size-[39px] transition bg-[#F8FAFC] dark:text-white dark:bg-[#343950] rounded-lg flex items-center justify-center text-[12px] font-semibold uppercase">
-        {lang}
+      <button aria-label="Change language" className="size-[39px] transition bg-[#F8FAFC] dark:text-white dark:bg-[#343950] rounded-lg flex items-center justify-center text-[12px] font-semibold uppercase">
+        {lang.slice(0, 2)}
       </button>
     </Dropdown>
   );

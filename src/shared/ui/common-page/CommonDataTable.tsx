@@ -59,11 +59,11 @@ export function CommonDataTable<
   } = useCommonFetchTableData<T>(fetchApiUrl);
 
   return (
-    <div className="p-4 border bg-white rounded-xl dark:bg-[#2B3048] dark:border-[#3A405A] transition">
+    <div className="data-table-shell">
       <Flex
         justify={searchInputProps ? "space-between" : "flex-end"}
         align="center"
-        className="mb-4"
+        className="data-table-toolbar mb-4"
       >
         {searchInputProps && (
           <SearchInput control={control} {...searchInputProps} />

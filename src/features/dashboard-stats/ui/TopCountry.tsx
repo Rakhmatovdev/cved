@@ -47,7 +47,7 @@ const CountryChartRecharts: React.FC<CountryChartProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={cn(
-        "w-full h-full p-5 rounded-2xl border dark:border-dborder bg-white dark:bg-[#1C1E2E] shadow-lg hover:shadow-xl transition-all duration-300",
+        "dashboard-card w-full h-full p-5 rounded-2xl border shadow-lg hover:shadow-xl transition-all duration-300",
         wrapperClassName
       )}
     >

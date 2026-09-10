@@ -15,23 +15,23 @@ import CustomBadge from "@/shared/ui/CustomBadge";
 import useDarkMode from "@/utils/hooks/useDarkMode";
 
 const data: SendDataItem[] = [
-  { name: "15:20:30", year2024: 15000, year2025: 20000 },
-  { name: "15:21:30", year2024: 45000, year2025: 35000 },
-  { name: "15:22:30", year2024: 40000, year2025: 34000 },
-  { name: "15:23:30", year2024: 70000, year2025: 80000 },
-  { name: "15:24:30", year2024: 45000, year2025: 50000 },
-  { name: "15:25:30", year2024: 50000, year2025: 60000 },
-  { name: "15:26:30", year2024: 20000, year2025: 87000 }
+  { name: "08:00", year2024: 18, year2025: 24 },
+  { name: "10:00", year2024: 32, year2025: 41 },
+  { name: "12:00", year2024: 28, year2025: 37 },
+  { name: "14:00", year2024: 48, year2025: 59 },
+  { name: "16:00", year2024: 42, year2025: 54 },
+  { name: "18:00", year2024: 57, year2025: 68 },
+  { name: "20:00", year2024: 39, year2025: 62 }
 ];
 
 const SendService: React.FC = () => {
   const { t } = useTranslation();
   const { isDarkMode } = useDarkMode();
   return (
-    <div className="card_main p-4 transition w-1/2 dark:bg-[#181B29]">
+    <div className="dashboard-card p-4 transition w-full">
       <div className="space-y-2 mb-4">
         <h2 className="text-xl 2xl:text-2xl transition font-semibold mb-2 text-grayed dark:text-white ">
-          {t("statics.send_veb")}
+          {t("statics.queue_flow", "Web service queue")}
         </h2>
         <div className="flex justify-between">
           <CustomBadge>{t("statics.in_real")}</CustomBadge>
@@ -43,7 +43,7 @@ const SendService: React.FC = () => {
               variant="transparent"
               className="text-sm text-secondary transition"
             >
-              2024 {t("statics.year")}
+                {t("statics.previous_period", "Previous period")}
             </CustomBadge>
 
             <CustomBadge
@@ -52,7 +52,7 @@ const SendService: React.FC = () => {
               variant="transparent"
               className="text-sm text-secondary transition"
             >
-              2025 {t("statics.year")}
+                {t("statics.current_period", "Current period")}
             </CustomBadge>
           </Flex>
         </div>

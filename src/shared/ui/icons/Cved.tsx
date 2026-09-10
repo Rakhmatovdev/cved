@@ -29,7 +29,7 @@ const CvedSvg = (): ReactElement => (
       fontFamily="Arial, Helvetica, sans-serif"
       fontSize="30"
       fontWeight="700"
-      fill="white"
+      fill="currentColor"
     >
       VED
     </text>

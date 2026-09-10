@@ -1,170 +1,35 @@
-import { Flex } from "antd";
 import { useTranslation } from "react-i18next";
-import {
-  Area,
-  AreaChart,
-  CartesianGrid,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
+import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import useDarkMode from "@/utils/hooks/useDarkMode";
 
 const DaysLivedApexChart = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { isDarkMode } = useDarkMode();
-
   const data = [
-    { name: t("month.january"), year2024: 10000, year2025: 20000 },
-    { name: t("month.february"), year2024: 25000, year2025: 35000 },
-    { name: t("month.march"), year2024: 20000, year2025: 34000 },
-    { name: t("month.april"), year2024: 30000, year2025: 35000 },
-    { name: t("month.may"), year2024: 45000, year2025: 50000 },
-    { name: t("month.june"), year2024: 50000, year2025: 60000 },
-    { name: t("month.july"), year2024: 60000, year2025: 70000 },
-    { name: t("month.august"), year2024: 75000, year2025: 80000 },
-    { name: t("month.september"), year2024: 100000, year2025: 110000 },
-    { name: t("month.october"), year2024: 110000, year2025: 120000 },
-    { name: t("month.november"), year2024: 115000, year2025: 125000 },
-    { name: t("month.december"), year2024: 165000, year2025: 125000 },
+    { name: t("month.january"), arrivals: 10000, departures: 8200 }, { name: t("month.february"), arrivals: 12500, departures: 9400 },
+    { name: t("month.march"), arrivals: 14800, departures: 11700 }, { name: t("month.april"), arrivals: 18100, departures: 14200 },
+    { name: t("month.may"), arrivals: 22400, departures: 18700 }, { name: t("month.june"), arrivals: 25800, departures: 21100 },
+    { name: t("month.july"), arrivals: 29100, departures: 24600 }, { name: t("month.august"), arrivals: 32400, departures: 27800 },
+    { name: t("month.september"), arrivals: 35700, departures: 30100 }, { name: t("month.october"), arrivals: 38800, departures: 33400 },
+    { name: t("month.november"), arrivals: 41600, departures: 36100 }, { name: t("month.december"), arrivals: 45200, departures: 39800 }
   ];
-
-  const last2024 = data[data.length - 1].year2024;
-  const last2025 = data[data.length - 1].year2025;
-  const growthRate = (((last2025 - last2024) / last2024) * 100).toFixed(1);
-
+  const growth = (((data[data.length - 1].arrivals - data[0].arrivals) / data[0].arrivals) * 100).toFixed(1);
+  const locale = i18n.language === "uz" ? "uz-UZ" : i18n.language === "en" ? "en-US" : "ru-RU";
   return (
-    <div className="card_main p-4 w-full transition dark:bg-[#181B29]">
-      <Flex justify="space-between" align="end" className="mb-6">
-        <div>
-          <h2 className="text-xl 2xl:text-2xl transition text-[#343539] dark:text-white font-semibold mb-1">
-            {t("Oyma oy xujum vaqtlari")}
-          </h2>
-          <p className="text-[#717386] text-sm px-2 py-[2px] transition bg-[#F2F4F7] dark:bg-[#40455A] dark:text-[#fff] rounded-md inline font-medium">
-            {t("statics.period")}
-          </p>
-          <p className="text-xs mt-1 font-semibold text-green-500 dark:text-green-400">
-            +{growthRate}% {t("statics.growth_2025")}
-          </p>
-        </div>
-        <Flex gap={16}>
-          <Flex gap={8} align="center">
-            <span className="w-4 h-4 rounded bg-[#4A7CF1]" />
-            <span className="text-sm 2xl:text-sm text-secondary dark:text-white font-medium">
-              2024 {t("statics.year")}
-            </span>
-          </Flex>
-          <Flex gap={8} align="center">
-            <span className="w-4 h-4 rounded bg-[#06D188]" />
-            <span className="text-sm 2xl:text-sm text-secondary dark:text-white font-medium">
-              2025 {t("statics.year")}
-            </span>
-          </Flex>
-        </Flex>
-      </Flex>
-
-      <ResponsiveContainer width="100%" height={400}>
-        <AreaChart
-          data={data}
-          margin={{ top: 20, right: 30, left: 0, bottom: 0 }}
-        >
-          <defs>
-            {/* Blue gradient for 2024 */}
-            <linearGradient id="grad2024" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#4A7CF1" stopOpacity={0.6} />
-              <stop offset="100%" stopColor="#4A7CF1" stopOpacity={0.05} />
-            </linearGradient>
-
-            {/* Green gradient for 2025 */}
-            <linearGradient id="grad2025" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#06D188" stopOpacity={0.6} />
-              <stop offset="100%" stopColor="#06D188" stopOpacity={0.05} />
-            </linearGradient>
-
-            {/* Glow filter */}
-            <filter id="softGlow">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <CartesianGrid
-            stroke={isDarkMode ? "#3B415B" : "#E5E7EB"}
-            vertical={true}
-            horizontal={false}
-            strokeWidth={1}
-            style={{ transition: "all 0.4s ease-in-out" }}
-          />
-
-          <XAxis
-            dataKey="name"
-            tick={{ fill: isDarkMode ? "#B0B0B0" : "#6B7280", fontSize: 13 }}
-            tickLine={false}
-            axisLine={false}
-          />
-
-          <YAxis
-            tick={{ fill: isDarkMode ? "#B0B0B0" : "#6B7280", fontSize: 13 }}
-            tickFormatter={(value) => `${value / 1000}K`}
-            axisLine={false}
-            tickLine={false}
-          />
-
-          <Tooltip
-            contentStyle={{
-              background: isDarkMode ? "#1F2937" : "#FFFFFF",
-              border: `1px solid ${isDarkMode ? "#374151" : "#E5E7EB"}`,
-              borderRadius: "8px",
-              boxShadow: "0 4px 8px rgba(0,0,0,0.15)",
-            }}
-            labelStyle={{ color: "#9CA3AF", fontWeight: 500 }}
-            formatter={(value, name) => [
-              `${value.toLocaleString()}`,
-              name === "year2024" ? "2024" : "2025",
-            ]}
-          />
-
-          {/* Year 2024 */}
-          <Area
-            type="monotone"
-            dataKey="year2024"
-            stroke="#4A7CF1"
-            strokeWidth={3}
-            strokeLinecap="round"
-            fillOpacity={1}
-            fill="url(#grad2024)"
-            filter="url(#softGlow)"
-            activeDot={{
-              r: 10,
-              stroke: "#fff",
-              strokeWidth: 3,
-              fill: "#4A7CF1",
-              className: "animate-pulse",
-            }}
-          />
-
-          {/* Year 2025 */}
-          <Area
-            type="monotone"
-            dataKey="year2025"
-            stroke="#06D188"
-            strokeWidth={3}
-            strokeLinecap="round"
-            fillOpacity={1}
-            fill="url(#grad2025)"
-            filter="url(#softGlow)"
-            activeDot={{
-              r: 10,
-              stroke: "#fff",
-              strokeWidth: 3,
-              fill: "#06D188",
-              className: "animate-pulse",
-            }}
-          />
+    <div className="dashboard-card p-5 w-full">
+      <div className="flex items-end justify-between gap-4 mb-6">
+        <div><h2 className="text-xl 2xl:text-2xl font-semibold text-[var(--cved-ink)] dark:text-white mb-2">{t("statics.monthly_flow", "Monthly visitor flow")}</h2><p className="text-xs text-[var(--cved-muted)]">{t("statics.last_12_months", "Last 12 months")}</p><p className="text-xs mt-2 font-semibold text-[var(--cved-teal)]">+{growth}% {t("statics.growth", "growth")}</p></div>
+        <div className="flex gap-3"><span className="flex items-center gap-1.5 text-xs text-[var(--cved-muted)]"><i className="size-2 rounded-full bg-[#2563EB]" />{t("statics.arrivals")}</span><span className="flex items-center gap-1.5 text-xs text-[var(--cved-muted)]"><i className="size-2 rounded-full bg-[#0F9F8F]" />{t("statics.departures")}</span></div>
+      </div>
+      <ResponsiveContainer width="100%" height={345}>
+        <AreaChart data={data} margin={{ top: 18, right: 18, left: 0, bottom: 0 }}>
+          <defs><linearGradient id="monthlyArrivals" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#2563EB" stopOpacity={.35} /><stop offset="100%" stopColor="#2563EB" stopOpacity={.02} /></linearGradient><linearGradient id="monthlyDepartures" x1="0" y1="0" x2="0" y2="1"><stop offset="5%" stopColor="#0F9F8F" stopOpacity={.3} /><stop offset="100%" stopColor="#0F9F8F" stopOpacity={.02} /></linearGradient></defs>
+          <CartesianGrid stroke={isDarkMode ? "#26344A" : "#E9EEF5"} vertical={false} strokeDasharray="3 3" />
+          <XAxis dataKey="name" tick={{ fill: isDarkMode ? "#9AAAC1" : "#667085", fontSize: 11 }} tickLine={false} axisLine={false} />
+          <YAxis tick={{ fill: isDarkMode ? "#9AAAC1" : "#667085", fontSize: 11 }} tickFormatter={(value) => `${value / 1000}K`} axisLine={false} tickLine={false} />
+          <Tooltip contentStyle={{ background: isDarkMode ? "#121D30" : "#fff", border: `1px solid ${isDarkMode ? "#26344A" : "#E4E9F0"}`, borderRadius: 9 }} labelStyle={{ color: isDarkMode ? "#EEF4FF" : "#162033" }} formatter={(value: number, name: string) => [value.toLocaleString(locale), name === "arrivals" ? t("statics.arrivals") : t("statics.departures")]} />
+          <Area type="monotone" dataKey="arrivals" stroke="#2563EB" strokeWidth={3} fill="url(#monthlyArrivals)" />
+          <Area type="monotone" dataKey="departures" stroke="#0F9F8F" strokeWidth={3} fill="url(#monthlyDepartures)" />
         </AreaChart>
       </ResponsiveContainer>
     </div>

@@ -1,4 +1,3 @@
-import { Flex } from "antd";
 import { useTranslation } from "react-i18next";
 import {
   CountryChartRecharts,
@@ -13,214 +12,64 @@ import CustomBadge from "@/shared/ui/CustomBadge";
 import TeamIcon from "@/shared/ui/icons/dashboard/TeamIcon.tsx";
 
 const Dashboard = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const numberLocale = i18n.language === "uz" ? "uz-UZ" : i18n.language === "en" ? "en-US" : "ru-RU";
+
+  const summary = [
+    { id: "online", name: t("statics.online_now", "Online now"), value: 1284, status: t("statics.realtime", "Real time"), color: "#2563EB", live: true },
+    { id: "arrivals", name: t("statics.arrivals", "Arrivals today"), value: 8462, status: t("statics.arrived", "Arrived today"), color: "#0F9F8F" },
+    { id: "departures", name: t("statics.departures", "Departures today"), value: 7816, status: t("statics.departed", "Departed today"), color: "#D97706" },
+    { id: "records", name: t("statics.records_today", "Records this month"), value: 24936, status: t("statics.total", "Total this month"), color: "#7C3AED" }
+  ];
 
   const countryData = [
-    { name: "Афганистан", value: 213 },
-    { name: "Аргентина", value: 456 },
-    { name: "Франция", value: 567 },
-    { name: "Швеция", value: 678 },
-    { name: "Канада", value: 789 },
-    { name: "Хорватия", value: 890 },
-    { name: "Китай", value: 122 },
-    { name: "Афганистан", value: 213 },
-    { name: "Аргентина", value: 456 },
-    { name: "Франция", value: 567 },
-    { name: "Швеция", value: 678 },
-    { name: "Канада", value: 789 },
-    { name: "Хорватия", value: 890 },
-    { name: "Китай", value: 123 },
-    { name: "Афганистан", value: 213 },
-    { name: "Аргентина", value: 456 },
-    { name: "Франция", value: 567 },
-    { name: "Швеция", value: 678 },
-    { name: "Канада", value: 789 },
-    { name: "Хорватия", value: 890 }
+    { name: "Kazakhstan", value: 213 }, { name: "Russia", value: 456 },
+    { name: "France", value: 567 }, { name: "Sweden", value: 678 },
+    { name: "Canada", value: 789 }, { name: "Croatia", value: 890 }, { name: "China", value: 522 }
   ];
   const countryData2 = [
-    { name: "Афганистан", value: 213123 },
-    { name: "Аргентина", value: 456123 },
-    { name: "Франция", value: 567123 },
-    { name: "Швеция", value: 678123 },
-    { name: "Канада", value: 789123 },
-    { name: "Хорватия", value: 890123 },
-    { name: "Китай", value: 122123 },
-    { name: "Канада", value: 789123 },
-    { name: "Хорватия", value: 890123 }
+    { name: "Tajikistan", value: 1231 }, { name: "Kyrgyzstan", value: 1102 },
+    { name: "Turkmenistan", value: 968 }, { name: "Azerbaijan", value: 756 },
+    { name: "Belarus", value: 621 }, { name: "Armenia", value: 514 }
   ];
-
-
-  const team = [
-    {
-      id: 1,
-      name: t("statics.users"),
-      key: "users",
-      team_color: "#3276FF",
-      team_background: "rgba(50, 118, 255, 0.30)",
-      value: 14459,
-      status: t("statics.only_now"),
-      status_color: "#2CBE88",
-      status_colord: "#2CBE88",
-      status_background: "#2CBE881A",
-      status_backgroundd: "#2CBE881A"
-    },
-    {
-      id: 2,
-      name: t("statics.write"), //"Записей"
-      key: "write",
-      team_color: "#2CBE88",
-      team_background: "rgba(44, 190, 136, 0.30)",
-      value: 14459,
-      status: t("statics.total") //"Всего за текущий месяц"
-    },
-    {
-      id: 3,
-      name: t("statics.guest"), //"Гостей"
-      key: "users",
-      team_color: "#8B54FF",
-      team_background: "rgba(143, 143, 255, 0.30)",
-      value: 14459,
-      status: t("statics.arrived")
-    },
-    {
-      id: 4,
-      name: t("statics.guest"), //"Гостей"
-      key: "guest",
-      team_color: "#FF4B55",
-      team_background: "rgba(255, 75, 85, 0.30)",
-      value: 12457,
-      status: t("statics.departed") //"Убыло сегодня"
-    }
-  ];
-
-  const formatNumber = (num: number): string => {
-    return num.toLocaleString("ru-RU");
-  };
-
 
   return (
-    <div className="dashboard-page p-6 space-y-4 w-full bg-lightTest dark:bg-darkBlue transition-colors duration-500">
-      <Flex gap={20} wrap className="dashboard-stat-grid">
-        {team.map((item) => (
-          <div
-            key={item.id}
-            className={`
-        group relative overflow-hidden w-full
-        p-5 rounded-2xl border transition-all duration-300 
-        dark:border-dborder border-gray-200
-        bg-white dark:bg-slateBlue
-        shadow-card hover:shadow-lg hover:-translate-y-1
-        flex justify-between items-start
-      `}
-          >
-            {/* background decorative blur */}
-            <div
-              className="absolute left-0 top-0 w-44 h-44 opacity-50 blur-2xl transition-all duration-500 group-hover:opacity-70"
-              style={{ backgroundColor: item.team_color }}
-            />
+    <main className="dashboard-page">
+      <section className="dashboard-heading">
+        <div>
+          <p className="dashboard-eyebrow">CVED / {t("breadcrumb.dashboard", "Dashboard")}</p>
+          <h1>{t("statics.dashboard_overview", "Dashboard overview")}</h1>
+          <p>{t("statics.dashboard_subtitle", "Monitor arrivals, departures and hotel activity in one place.")}</p>
+        </div>
+        <CustomBadge variant="info">{t("statics.realtime", "Real time")}</CustomBadge>
+      </section>
 
-            {/* Left side */}
-            <div className="relative z-10">
-              <div
-                className="p-3 rounded-xl border border-gray-100 dark:border-dborder
-          bg-white/60 dark:bg-darkBlue/60 shadow-inner backdrop-blur-sm
-          flex items-center justify-center w-12 h-12 transition-all duration-300
-          group-hover:scale-105"
-              >
-                <TeamIcon strokeColor={item.team_color} height={18} />
-              </div>
-
-              <div className="mt-6">
-                <p className="text-sm font-medium text-lighter dark:text-dtext transition-all duration-200">
-                  {item.name}
-                </p>
-                <p className="mt-1 text-3xl font-semibold text-grayed dark:text-white">
-                  {formatNumber(item.value)}
-                </p>
-              </div>
+      <section className="dashboard-stat-grid" aria-label={t("statics.dashboard_overview", "Dashboard overview")}>
+        {summary.map((item) => (
+          <article className="dashboard-summary-card" key={item.id}>
+            <div className="dashboard-summary-glow" style={{ backgroundColor: item.color }} />
+            <div className="dashboard-summary-top">
+              <div className="dashboard-summary-icon" style={{ color: item.color }}><TeamIcon strokeColor={item.color} height={18} /></div>
+              {item.live && <span className="dashboard-live"><i /> {t("statics.live", "Live")}</span>}
             </div>
-
-            {/* Right side */}
-            <div className="relative z-10 flex items-end justify-end">
-              <div
-                className={`
-            px-3 py-1 rounded-full flex items-center gap-2
-            text-sm font-medium transition-all duration-200
-            ${
-                  item.team_color === "#3276FF"
-                    ? "bg-emeraldGreen/10 text-emeraldGreen"
-                    : "bg-gray-100 dark:bg-darkBlue text-gray-600 dark:text-white"
-                }
-          `}
-              >
-                {item.team_color === "#3276FF" && (
-                  <span className="w-2 h-2 rounded-full bg-emeraldGreen animate-pulse" />
-                )}
-                <p className="line-clamp-1">{item.status}</p>
-              </div>
-            </div>
-          </div>
+            <p className="dashboard-summary-label">{item.name}</p>
+            <strong>{item.value.toLocaleString(numberLocale)}</strong>
+            <span className="dashboard-summary-status">{item.status}</span>
+          </article>
         ))}
-      </Flex>
+      </section>
 
+      <Maxmin />
 
+      <section className="dashboard-grid dashboard-grid-three">
+        <CountryChartRecharts title={t("statics.top_active_10")} description={<CustomBadge variant="default">{t("statics.hotel_mvd")}</CustomBadge>} data={countryData} barColor={["#2563EB", "#7EA6FF"]} />
+        <CountryChartRecharts title={t("statics.state10")} description={<CustomBadge variant="default">{t("statics.hotel_mvd")}</CustomBadge>} data={countryData2} barColor={["#0F9F8F", "#74D8C7"]} />
+        <DonutChart />
+      </section>
 
-      <div className="flex transition flex-col 3xl:flex-col-reverse">
-        <Maxmin />
-        <Flex gap={16} wrap className="dashboard-chart-row">
-          <div className="w-1/2 3xl:w-1/3 dashboard-chart">
-            <CountryChartRecharts
-              title={t("statics.top_active_10")}
-              description={
-                <CustomBadge variant="default">
-                  {t("statics.hotel_mvd")}
-                </CustomBadge>
-              }
-              data={countryData}
-              barColor={["#F5913E", "#FDC775"]}
-            />
-          </div>
-          <div className="w-1/3 hidden 3xl:block">
-            <DonutChart />
-          </div>
-          <div className="w-1/2 3xl:w-1/3 dashboard-chart">
-            <CountryChartRecharts
-              description={
-                <CustomBadge variant="default">
-                  {t("statics.hotel_mvd")}
-                </CustomBadge>
-              }
-              title={t("statics.state10")}
-              data={countryData2}
-              barColor={["#497BF1", "#82A7F9"]}
-            />
-          </div>
-        </Flex>
-      </div>
-      <Flex gap={16} wrap className="3xl:hidden transition dashboard-chart-row">
-        <div className="w-[55%] 3xl:w-1/2 dashboard-chart">
-          <ServerLoadApexChart />
-        </div>
-        <div className="w-[45%] 3xl:w-1/2 dashboard-chart">
-          <DonutChart />
-        </div>
-      </Flex>
-      <Flex gap={16} className="max-3xl:hidden transition">
-        <div className="w-1/3">
-          <ServerLoadApexChart />
-        </div>
-        <div className="w-2/3">
-          <DaysLivedApexChart />
-        </div>
-      </Flex>
-      <div className="3xl:hidden w-full">
-        <DaysLivedApexChart />
-      </div>
-      <Flex gap={16}>
-        <UzCountry />
-        <SendService />
-      </Flex>
-    </div>
+      <section className="dashboard-grid dashboard-grid-two"><ServerLoadApexChart /><DaysLivedApexChart /></section>
+      <section className="dashboard-grid dashboard-grid-two"><UzCountry /><SendService /></section>
+    </main>
   );
 };
 

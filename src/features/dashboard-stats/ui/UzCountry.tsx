@@ -111,7 +111,7 @@ const UzCountry = () => {
 
 
   return (
-    <div className="card_main p-4 w-1/2 transition dark:bg-[#181B29]">
+    <div className="dashboard-card p-4 w-full transition">
       <div className="space-y-2 mb-4">
         <h2 className="text-xl transition 2xl:text-2xl font-semibold text-grayed dark:text-white">
           {t("statics.uz_for")}
