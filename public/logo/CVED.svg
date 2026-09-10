@@ -1,0 +1,6 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Aylantirilgan C (180°), yanada teparoq va o‘ngroqqa -->
+  <text x="56" y="34" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" fill="#3276FF" transform="rotate(180 48 22)">C</text>
+  <!-- Yonidagi VED -->
+  <text x="39" y="32" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="white">VED</text>
+</svg>
