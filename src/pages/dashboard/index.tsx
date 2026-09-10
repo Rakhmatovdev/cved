@@ -23,14 +23,14 @@ const Dashboard = () => {
   ];
 
   const countryData = [
-    { name: "Kazakhstan", value: 213 }, { name: "Russia", value: 456 },
-    { name: "France", value: 567 }, { name: "Sweden", value: 678 },
-    { name: "Canada", value: 789 }, { name: "Croatia", value: 890 }, { name: "China", value: 522 }
+    { name: t("statics.country_kazakhstan"), value: 213 }, { name: t("statics.country_russia"), value: 456 },
+    { name: t("statics.country_france"), value: 567 }, { name: t("statics.country_sweden"), value: 678 },
+    { name: t("statics.country_canada"), value: 789 }, { name: t("statics.country_croatia"), value: 890 }, { name: t("statics.country_china"), value: 522 }
   ];
   const countryData2 = [
-    { name: "Tajikistan", value: 1231 }, { name: "Kyrgyzstan", value: 1102 },
-    { name: "Turkmenistan", value: 968 }, { name: "Azerbaijan", value: 756 },
-    { name: "Belarus", value: 621 }, { name: "Armenia", value: 514 }
+    { name: t("statics.country_tajikistan"), value: 1231 }, { name: t("statics.country_kyrgyzstan"), value: 1102 },
+    { name: t("statics.country_turkmenistan"), value: 968 }, { name: t("statics.country_azerbaijan"), value: 756 },
+    { name: t("statics.country_belarus"), value: 621 }, { name: t("statics.country_armenia"), value: 514 }
   ];
 
   return (

@@ -1437,3 +1437,6 @@ html.dark { color-scheme: dark; }
 .dark .ant-pagination-item-active a { color: #c7d9ff !important; }
 .dark .ant-drawer-header, .dark .ant-drawer-body { background: var(--cved-dark-surface) !important; border-color: var(--cved-dark-line) !important; }
 .dark .ant-drawer-title, .dark .ant-drawer-close { color: #eef4ff !important; }
+.login-cved-logo { width: 94px; height: 32px; color: var(--cved-ink); }
+.dark .login-cved-logo { color: #eef4ff; }
+.cved-ai-file-error { color: #d92d20; font-size: 10px; margin: 0 0 7px; }

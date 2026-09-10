@@ -1,5 +1,6 @@
 import { DatePicker } from "antd";
 import dayjs from "dayjs";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Area, AreaChart, ResponsiveContainer } from "recharts";
 import { motion } from "framer-motion";
@@ -114,6 +115,7 @@ const RegionCard = ({
 
 export default function Maxmin() {
   const { t } = useTranslation();
+  const [selectedDate, setSelectedDate] = useState(dayjs());
 
   const regions: MaxMinRegionData[] = [
     { name: t("region_uz.AN_full"), value: 16.9, isGrowth: true, byRoom: 12, byBed: 4.9 },
@@ -141,7 +143,8 @@ export default function Maxmin() {
 
           <DatePicker
             format="DD MMM YYYY"
-            value={dayjs("2025-08-16")}
+            value={selectedDate}
+            onChange={(date) => date && setSelectedDate(date)}
             suffixIcon={false}
             prefix={<CalendarIcon className="text-gray-400" />}
             size="large"

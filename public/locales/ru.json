@@ -14,7 +14,9 @@
     "demo_hint": "Демо-доступ: Jasur / 123",
     "system_active": "Система активна",
     "security_note": "Ваши данные защищены зашифрованным каналом.",
-    "invalid_demo": "Неверный логин или пароль демо-доступа"
+    "invalid_demo": "Неверный логин или пароль демо-доступа",
+    "product": "Данные гостей",
+    "secure_workspace": "Защищённое рабочее пространство"
   },
   "inputs": {
     "surname": "Фамилия",
@@ -630,6 +632,19 @@
   "last_30_days": "Последние 30 дней",
   "hourly_flow": "Почасовой поток гостей",
   "last_hour": "гостей за последний час",
+  "country_kazakhstan": "Казахстан",
+  "country_russia": "Россия",
+  "country_france": "Франция",
+  "country_sweden": "Швеция",
+  "country_canada": "Канада",
+  "country_croatia": "Хорватия",
+  "country_china": "Китай",
+  "country_tajikistan": "Таджикистан",
+  "country_kyrgyzstan": "Кыргызстан",
+  "country_turkmenistan": "Туркменистан",
+  "country_azerbaijan": "Азербайджан",
+  "country_belarus": "Беларусь",
+  "country_armenia": "Армения",
   "monthly_flow": "Помесячный поток гостей",
   "last_12_months": "Последние 12 месяцев",
   "growth": "рост",
@@ -919,7 +934,8 @@
     "generation_hint": "Настраиваем AI-пространство и проверяем подключение.",
     "step_session": "Сессия",
     "step_security": "Безопасность",
-    "step_ready": "Готово"
+    "step_ready": "Готово",
+    "file_too_large": "Размер файла не должен превышать 25 МБ."
   },
   "chat": {
     "help_center": "Центр помощи",

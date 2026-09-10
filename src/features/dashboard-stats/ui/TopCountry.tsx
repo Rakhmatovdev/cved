@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useId } from "react";
 import {
   Bar,
   BarChart,
@@ -39,7 +39,7 @@ const CountryChartRecharts: React.FC<CountryChartProps> = ({
                                                            }) => {
   const { isDarkMode } = useDarkMode();
   const maxValue = Math.max(...data.map((d) => d.value));
-  const gradientId = `barGradient-${Math.random().toString(36).slice(2, 9)}`;
+  const gradientId = `barGradient-${useId().replace(/:/g, "")}`;
 
   return (
     <motion.div

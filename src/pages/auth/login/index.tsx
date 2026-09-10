@@ -11,7 +11,7 @@ import { useNavigate } from "react-router";
 import { usePostLogin } from "@/entities/auth/api/post-login.ts";
 import { useAuthStore } from "@/entities/auth/model/store.ts";
 import type { LoginInputs } from "@/pages/auth/type";
-import cved from "/logo/CVED.svg";
+import CvedLogo from "@/shared/ui/icons/Cved";
 import gerb from "/logo/gerb.svg";
 
 export default function Login() {
@@ -89,10 +89,10 @@ export default function Login() {
 
         <section className="login-card" aria-labelledby="login-heading">
           <div className="login-card-brand">
-            <img src={cved} alt="CVED" />
+            <CvedLogo className="login-cved-logo" aria-label="CVED" />
             <div>
-              <p>Visitor Data</p>
-              <span>Secure workspace</span>
+              <p>{t("login.product", "Visitor Data")}</p>
+              <span>{t("login.secure_workspace", "Secure workspace")}</span>
             </div>
           </div>
           <div className="login-card-heading">

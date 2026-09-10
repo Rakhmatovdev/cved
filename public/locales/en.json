@@ -9,7 +9,9 @@
     "demo_hint": "Demo access: Jasur / 123",
     "system_active": "System active",
     "security_note": "Your credentials are protected through an encrypted channel.",
-    "invalid_demo": "Demo login or password is incorrect"
+    "invalid_demo": "Demo login or password is incorrect",
+    "product": "Visitor Data",
+    "secure_workspace": "Secure workspace"
   },
   "breadcrumb": {
     "dashboard": "Dashboard",
@@ -52,6 +54,19 @@
     "last_30_days": "Last 30 days",
     "hourly_flow": "Hourly visitor flow",
     "last_hour": "visitors in the last hour",
+    "country_kazakhstan": "Kazakhstan",
+    "country_russia": "Russia",
+    "country_france": "France",
+    "country_sweden": "Sweden",
+    "country_canada": "Canada",
+    "country_croatia": "Croatia",
+    "country_china": "China",
+    "country_tajikistan": "Tajikistan",
+    "country_kyrgyzstan": "Kyrgyzstan",
+    "country_turkmenistan": "Turkmenistan",
+    "country_azerbaijan": "Azerbaijan",
+    "country_belarus": "Belarus",
+    "country_armenia": "Armenia",
     "monthly_flow": "Monthly visitor flow",
     "last_12_months": "Last 12 months",
     "growth": "growth",
@@ -122,7 +137,8 @@
     "generation_hint": "Setting up the AI workspace and checking the connection.",
     "step_session": "Session",
     "step_security": "Security",
-    "step_ready": "Ready"
+    "step_ready": "Ready",
+    "file_too_large": "The file size must not exceed 25 MB."
   },
   "chat": {
     "help_center": "Help center",

@@ -14,7 +14,9 @@
     "demo_hint": "Demo kirish: Jasur / 123",
     "system_active": "Tizim faol",
     "security_note": "Kirish ma'lumotlari shifrlangan kanal orqali himoyalanadi.",
-    "invalid_demo": "Demo login yoki parol noto'g'ri"
+    "invalid_demo": "Demo login yoki parol noto'g'ri",
+    "product": "Mehmonlar ma'lumotlari",
+    "secure_workspace": "Xavfsiz ish maydoni"
   },
   "inputs": {
     "surname": "Familiya",
@@ -628,6 +630,19 @@
   "last_30_days": "So‘nggi 30 kun",
   "hourly_flow": "Soatlik mehmonlar oqimi",
   "last_hour": "oxirgi soatdagi mehmonlar",
+  "country_kazakhstan": "Qozog‘iston",
+  "country_russia": "Rossiya",
+  "country_france": "Fransiya",
+  "country_sweden": "Shvetsiya",
+  "country_canada": "Kanada",
+  "country_croatia": "Xorvatiya",
+  "country_china": "Xitoy",
+  "country_tajikistan": "Tojikiston",
+  "country_kyrgyzstan": "Qirg‘iziston",
+  "country_turkmenistan": "Turkmaniston",
+  "country_azerbaijan": "Ozarbayjon",
+  "country_belarus": "Belarus",
+  "country_armenia": "Armaniston",
   "monthly_flow": "Oylik mehmonlar oqimi",
   "last_12_months": "So‘nggi 12 oy",
   "growth": "o‘sish",
@@ -917,7 +932,8 @@
     "generation_hint": "AI workspace muhitini sozlayapmiz va ulanishni tekshiryapmiz.",
     "step_session": "Sessiya",
     "step_security": "Xavfsizlik",
-    "step_ready": "Tayyor"
+    "step_ready": "Tayyor",
+    "file_too_large": "Fayl hajmi 25 MB dan oshmasligi kerak."
   },
   "chat": {
     "help_center": "Yordam markazi",
