@@ -9,9 +9,6 @@ export default defineConfig({
     port: 3001
   },
   publicDir: "public",
-  define: {
-    "process.env": process.env
-  },
   optimizeDeps: {
     include: ["react-apexcharts", "apexcharts"]
   }

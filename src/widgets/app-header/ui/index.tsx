@@ -49,7 +49,7 @@ export default function AppHeader() {
 
   return (
     <Flex
-      className={`px-6 sticky top-0 z-50 transition-colors min-h-[62px] dark:bg-[#2B3048] dark:border-[#3A405A] dark:border-b-[#3A405A] bg-white border-b border-[#E5E7EB] w-full items-center justify-between`}
+      className={`px-6 sticky top-0 z-50 transition-colors min-h-[68px] dark:bg-[#121D30] dark:border-[#26344A] dark:border-b-[#26344A] bg-white border-b border-[#E4E9F0] w-full items-center justify-between app-header`}
     >
       <Flex align="center">
         {collapsed && <ToggleSidebarButton onClick={toggleSidebar} />}

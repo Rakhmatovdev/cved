@@ -8,11 +8,11 @@ import AppHeader from "../../widgets/app-header/ui";
 
 export default function AppLayout({ children }: PropsWithChildren) {
   return (
-    <Layout className="transition bg-lightTest dark:bg-dbody">
+    <Layout className="transition app-shell bg-lightTest dark:bg-dbody">
       <AppSidebar />
       <ToastContainer />
       <Layout
-        className={`transition bg-lightTest dark:bg-dbody w-[calc(100%-${SIDEBAR_WIDTH}px)]`}
+        className={`transition bg-lightTest dark:bg-dbody w-[calc(100%-${SIDEBAR_WIDTH}px)] app-main-layout`}
       >
         <AppHeader />
         <Content className="transition">{children}</Content>

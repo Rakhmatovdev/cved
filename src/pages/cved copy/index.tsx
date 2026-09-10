@@ -839,16 +839,12 @@ export default function ChatUploaderCards({ uploadUrl }: { uploadUrl?: string })
                             : ""}
                         </div>
                         <div className="flex items-center gap-2">
-                          <a
+                          <button
                             className="text-xs underline"
-                            href="#"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              alert("Download demo");
-                            }}
+                            onClick={() => alert("Download demo")}
                           >
                             Download
-                          </a>
+                          </button>
                           <button
                             className="text-xs px-2 py-1 rounded border"
                             onClick={() => alert("Preview demo")}
@@ -878,4 +874,3 @@ export default function ChatUploaderCards({ uploadUrl }: { uploadUrl?: string })
     </div>
   );
 }
-

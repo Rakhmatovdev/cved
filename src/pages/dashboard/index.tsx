@@ -99,18 +99,17 @@ const Dashboard = () => {
 
 
   return (
-    <div className="p-6 space-y-4 w-full bg-white dark:bg-darkBlue transition-colors duration-500">
-      <Flex gap={20}  className={' '}>
+    <div className="dashboard-page p-6 space-y-4 w-full bg-lightTest dark:bg-darkBlue transition-colors duration-500">
+      <Flex gap={20} wrap className="dashboard-stat-grid">
         {team.map((item) => (
           <div
             key={item.id}
             className={`
-        group relative overflow-hidden w-full md:w-[48%] lg:w-[32%]
+        group relative overflow-hidden w-full
         p-5 rounded-2xl border transition-all duration-300 
         dark:border-dborder border-gray-200
-        bg-gradient-to-br from-white via-white to-gray-50
-        dark:from-slateBlue dark:via-slateBlue dark:to-darkBlue
-        shadow-md hover:shadow-lg hover:-translate-y-1
+        bg-white dark:bg-slateBlue
+        shadow-card hover:shadow-lg hover:-translate-y-1
         flex justify-between items-start
       `}
           >
@@ -168,8 +167,8 @@ const Dashboard = () => {
 
       <div className="flex transition flex-col 3xl:flex-col-reverse">
         <Maxmin />
-        <Flex gap={16}>
-          <div className="w-1/2 3xl:w-1/3">
+        <Flex gap={16} wrap className="dashboard-chart-row">
+          <div className="w-1/2 3xl:w-1/3 dashboard-chart">
             <CountryChartRecharts
               title={t("statics.top_active_10")}
               description={
@@ -184,7 +183,7 @@ const Dashboard = () => {
           <div className="w-1/3 hidden 3xl:block">
             <DonutChart />
           </div>
-          <div className="w-1/2 3xl:w-1/3">
+          <div className="w-1/2 3xl:w-1/3 dashboard-chart">
             <CountryChartRecharts
               description={
                 <CustomBadge variant="default">
@@ -198,11 +197,11 @@ const Dashboard = () => {
           </div>
         </Flex>
       </div>
-      <Flex gap={16} className="3xl:hidden transition">
-        <div className="w-[55%] 3xl:w-1/2">
+      <Flex gap={16} wrap className="3xl:hidden transition dashboard-chart-row">
+        <div className="w-[55%] 3xl:w-1/2 dashboard-chart">
           <ServerLoadApexChart />
         </div>
-        <div className="w-[45%] 3xl:w-1/2">
+        <div className="w-[45%] 3xl:w-1/2 dashboard-chart">
           <DonutChart />
         </div>
       </Flex>

@@ -1,5 +1,5 @@
 .custom-app-sidebar {
-  @apply p-3  border-r border-solid border-[#E9E9E9] h-[100vh] flex-col justify-between dark:border-[#3A405A] dark:bg-[#2B3048] bg-white w-full transition-all duration-300;
+  @apply p-3 border-r border-solid border-[#E4E9F0] h-[100vh] flex-col justify-between dark:border-[#26344A] dark:bg-[#121D30] bg-white w-full transition-all duration-300;
 }
 
 .custom-app-sidebar ul.ant-menu.ant-menu-sub {
