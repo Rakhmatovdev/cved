@@ -149,7 +149,7 @@ export default function Login() {
                   size="large"
                   prefix={<LockOutlined />}
                   iconRender={(visible) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />)}
-                  placeholder={t("login.password_confirm", "Parol")}
+                  placeholder={t("placeholder.password", "Parolni kiriting")}
                   status={errors.password ? "error" : undefined}
                   autoComplete="current-password"
                 />

@@ -9,7 +9,7 @@ interface LangActions {
   reset: () => void;
 }
 
-const savedLanguage = localStorage.getItem("i18nextLng")?.slice(0, 2);
+const savedLanguage = (localStorage.getItem("i18nextLng") || i18n.language)?.slice(0, 2);
 const initialState: Lang = {
   lang: savedLanguage && ["uz", "ru", "en"].includes(savedLanguage) ? savedLanguage : "uz"
 };

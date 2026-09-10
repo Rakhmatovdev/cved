@@ -2,7 +2,7 @@ import { App, ConfigProvider } from "antd";
 import useApp from "antd/es/app/useApp";
 // i18n.js or locale.js
 import dayjs from "dayjs";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { antdTheme } from "@/app/providers/antd-provider/config/theme";
 import { setNotificationApi } from "@/shared/lib/notification.ts";
 import useDarkMode from "@/utils/hooks/useDarkMode.tsx";
@@ -15,7 +15,6 @@ import ruRU from "antd/locale/ru_RU";
 import uzUZ from "antd/locale/uz_UZ";
 import enUS from "antd/locale/en_US";
 import { useTranslation } from "react-i18next";
-import i18n from "@/i18n.ts";
 
 export const antdLocales = {
   ru: ruRU,
@@ -23,11 +22,13 @@ export const antdLocales = {
   en: enUS
 };
 
-dayjs.locale(i18n.language);
-
 export const AntdProvider = ({ children }: PropsWithChildren) => {
   const { i18n } = useTranslation();
   const { isDarkMode } = useDarkMode();
+
+  useEffect(() => {
+    dayjs.locale(i18n.language === "en" ? "en" : i18n.language);
+  }, [i18n.language]);
 
   return (
     <ConfigProvider

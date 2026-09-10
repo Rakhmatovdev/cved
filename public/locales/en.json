@@ -53,7 +53,8 @@
     "visitor_mix": "Visitor mix",
     "last_30_days": "Last 30 days",
     "hourly_flow": "Hourly visitor flow",
-    "last_hour": "visitors in the last hour",
+  "last_hour": "visitors in the last hour",
+    "last_updated": "Updated",
     "country_kazakhstan": "Kazakhstan",
     "country_russia": "Russia",
     "country_france": "France",
@@ -138,7 +139,9 @@
     "step_session": "Session",
     "step_security": "Security",
     "step_ready": "Ready",
-    "file_too_large": "The file size must not exceed 25 MB."
+    "file_too_large": "The file size must not exceed 25 MB.",
+    "context_window": "context window",
+    "availability": "availability"
   },
   "chat": {
     "help_center": "Help center",

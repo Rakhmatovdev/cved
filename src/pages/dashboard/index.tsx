@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
 import {
   CountryChartRecharts,
   DaysLivedApexChart,
@@ -13,7 +14,13 @@ import TeamIcon from "@/shared/ui/icons/dashboard/TeamIcon.tsx";
 
 const Dashboard = () => {
   const { t, i18n } = useTranslation();
+  const [lastUpdated, setLastUpdated] = useState(() => new Date());
   const numberLocale = i18n.language === "uz" ? "uz-UZ" : i18n.language === "en" ? "en-US" : "ru-RU";
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setLastUpdated(new Date()), 60_000);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const summary = [
     { id: "online", name: t("statics.online_now", "Online now"), value: 1284, status: t("statics.realtime", "Real time"), color: "#2563EB", live: true },
@@ -41,7 +48,7 @@ const Dashboard = () => {
           <h1>{t("statics.dashboard_overview", "Dashboard overview")}</h1>
           <p>{t("statics.dashboard_subtitle", "Monitor arrivals, departures and hotel activity in one place.")}</p>
         </div>
-        <CustomBadge variant="info">{t("statics.realtime", "Real time")}</CustomBadge>
+        <div className="dashboard-heading-meta"><CustomBadge variant="info">{t("statics.realtime", "Real time")}</CustomBadge><span><i /> {t("statics.last_updated", "Updated")} {new Intl.DateTimeFormat(i18n.language, { hour: "2-digit", minute: "2-digit" }).format(lastUpdated)}</span></div>
       </section>
 
       <section className="dashboard-stat-grid" aria-label={t("statics.dashboard_overview", "Dashboard overview")}>

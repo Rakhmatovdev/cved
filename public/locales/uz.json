@@ -630,6 +630,7 @@
   "last_30_days": "So‘nggi 30 kun",
   "hourly_flow": "Soatlik mehmonlar oqimi",
   "last_hour": "oxirgi soatdagi mehmonlar",
+  "last_updated": "Yangilandi",
   "country_kazakhstan": "Qozog‘iston",
   "country_russia": "Rossiya",
   "country_france": "Fransiya",
@@ -933,7 +934,9 @@
     "step_session": "Sessiya",
     "step_security": "Xavfsizlik",
     "step_ready": "Tayyor",
-    "file_too_large": "Fayl hajmi 25 MB dan oshmasligi kerak."
+    "file_too_large": "Fayl hajmi 25 MB dan oshmasligi kerak.",
+    "context_window": "kontekst oynasi",
+    "availability": "mavjudlik"
   },
   "chat": {
     "help_center": "Yordam markazi",

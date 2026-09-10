@@ -632,6 +632,7 @@
   "last_30_days": "Последние 30 дней",
   "hourly_flow": "Почасовой поток гостей",
   "last_hour": "гостей за последний час",
+  "last_updated": "Обновлено",
   "country_kazakhstan": "Казахстан",
   "country_russia": "Россия",
   "country_france": "Франция",
@@ -935,7 +936,9 @@
     "step_session": "Сессия",
     "step_security": "Безопасность",
     "step_ready": "Готово",
-    "file_too_large": "Размер файла не должен превышать 25 МБ."
+    "file_too_large": "Размер файла не должен превышать 25 МБ.",
+    "context_window": "контекстное окно",
+    "availability": "доступность"
   },
   "chat": {
     "help_center": "Центр помощи",
