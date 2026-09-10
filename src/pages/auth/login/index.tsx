@@ -7,14 +7,20 @@ import {
 import { Alert, Input, Spin } from "antd";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router";
 import { usePostLogin } from "@/entities/auth/api/post-login.ts";
+import { useAuthStore } from "@/entities/auth/model/store.ts";
 import type { LoginInputs } from "@/pages/auth/type";
 import cved from "/logo/CVED.svg";
 import gerb from "/logo/gerb.svg";
 
 export default function Login() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const loginMutation = usePostLogin();
+  const setAccessToken = useAuthStore((state) => state.setAccessToken);
+  const logIn = useAuthStore((state) => state.logIn);
+  const isDemoMode = !import.meta.env.VITE_BACKEND_HOST || import.meta.env.VITE_DEMO_MODE === "true";
   const {
     control,
     handleSubmit,
@@ -23,6 +29,32 @@ export default function Login() {
   } = useForm<LoginInputs>({ defaultValues: { username: "", password: "" } });
 
   const onSubmit = (values: LoginInputs) => {
+    if (isDemoMode) {
+      if (values.username === "Jasur" && values.password === "123") {
+        setAccessToken("demo-access-token");
+        logIn();
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            id: 1,
+            username: "Jasur",
+            first_name: "Alisher",
+            last_name: "Ashuraliyev",
+            role: "Demo administrator",
+            phone: "998901234567"
+          })
+        );
+        navigate("/dashboard", { replace: true });
+        return;
+      }
+
+      setError("username", {
+        type: "server",
+        message: "Demo login yoki parol noto'g'ri"
+      });
+      return;
+    }
+
     loginMutation.mutate(values, {
       onError: (error: any) => {
         const message =
@@ -67,6 +99,12 @@ export default function Login() {
             <h2 id="login-heading">{t("login.login", "Hisobga kirish")}</h2>
             <p>{t("login.subtitle_short", "Hisob ma'lumotlaringizni kiriting")}</p>
           </div>
+
+          {isDemoMode && (
+            <div className="login-demo-hint">
+              Demo kirish: <strong>Jasur</strong> / <strong>123</strong>
+            </div>
+          )}
 
           {errors.username?.type === "server" && (
             <Alert
